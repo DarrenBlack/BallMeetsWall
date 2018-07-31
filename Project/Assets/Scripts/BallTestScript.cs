@@ -8,15 +8,18 @@ public class BallTestScript : MonoBehaviour {
     public GameObject wall;
     public Transform startPosition;
     public float speed;
+    public float timeToReturn;
     bool frozen;
+    SphereCollider coll;
 
     Rigidbody rb;
 
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody>();
+        coll = GetComponent<SphereCollider>();
         frozen = true;
-        ResetPosition();
+        //ResetPosition();
 	}
 
     // Update is called once per frame
@@ -34,13 +37,20 @@ public class BallTestScript : MonoBehaviour {
                 MoveTowardsWall();
             }
         }
+
+        if (frozen)
+        {
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+        }
     }
 
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.name == "Wall")
         {
-            Debug.Log("Hit the wall probably");
+            Debug.Log("Hit the wall");
+
+            collision.gameObject.GetComponent<Kick>().Score();
             Invoke("ResetPosition", 2f);
         }
     }   
@@ -48,7 +58,6 @@ public class BallTestScript : MonoBehaviour {
     void MoveTowardsWall()
     {
         rb.constraints = RigidbodyConstraints.None;
-        //rb.AddForce((wall.transform.position - transform.position) * speed);
         rb.AddForce((GetRandomPositionOnWall() - transform.position) * speed);
     }
 
@@ -67,8 +76,22 @@ public class BallTestScript : MonoBehaviour {
 
     void ResetPosition()
     {
-        transform.position = startPosition.position;
+
+        Debug.Log("resetting position");
+        StartCoroutine(MoveToPosition(transform, startPosition.position, timeToReturn));
+        rb.constraints = RigidbodyConstraints.FreezeAll;
         frozen = true;
-        rb.constraints = RigidbodyConstraints.FreezeAll;       
+    }
+
+    public IEnumerator MoveToPosition(Transform transform, Vector3 position, float timeToMove)
+    {
+        var currentPos = transform.position;
+        var t = 0f;
+        while (t < 1)
+        {
+            t += Time.deltaTime / timeToMove;
+            transform.position = Vector3.Lerp(currentPos, position, t);
+            yield return null;
+        }
     }
 }
