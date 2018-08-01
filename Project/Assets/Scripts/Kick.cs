@@ -8,7 +8,6 @@ public class Kick : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
 	}
 	
 	// Update is called once per frame
@@ -18,6 +17,6 @@ public class Kick : MonoBehaviour {
 
     public void Score()
     {
-        GM.money += GM.moneyPerGoal;
+        GM.money += GM.moneyPK;
     }
 }

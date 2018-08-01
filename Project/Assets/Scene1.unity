@@ -213,8 +213,7 @@ MonoBehaviour:
   gameCamera: {fileID: 604305277}
   wall: {fileID: 1699355101}
   startPosition: {fileID: 1120136355}
-  speed: 7.5
-  timeToReturn: 1
+  gm: {fileID: 936037564}
 --- !u!54 &22203143
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -373,8 +372,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 275.55, y: 50}
-  m_SizeDelta: {x: 200, y: 99.998}
+  m_AnchoredPosition: {x: -238.04999, y: 50.000977}
+  m_SizeDelta: {x: 275, y: 99.998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &343440736
 MonoBehaviour:
@@ -570,7 +569,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &649514338
 GameObject:
@@ -646,6 +645,83 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 649514338}
+--- !u!1 &666915627
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 666915628}
+  - component: {fileID: 666915630}
+  - component: {fileID: 666915629}
+  m_Layer: 5
+  m_Name: FansPerKickDisplay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &666915628
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 666915627}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0000299, y: 1.0000299, z: 1.0000299}
+  m_Children: []
+  m_Father: {fileID: 1097379589}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 238.04999, y: -25}
+  m_SizeDelta: {x: 275, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &666915629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 666915627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 20
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Fans Per Kick:
+
+
+'
+--- !u!222 &666915630
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 666915627}
 --- !u!1 &898678248
 GameObject:
   m_ObjectHideFlags: 0
@@ -678,8 +754,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 275.55002, y: -49.999996}
-  m_SizeDelta: {x: 200, y: 99.997}
+  m_AnchoredPosition: {x: -238.04999, y: -75}
+  m_SizeDelta: {x: 275, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &898678250
 MonoBehaviour:
@@ -748,16 +824,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyDisplay: {fileID: 343440736}
+  moneyPKDisplay: {fileID: 1910399642}
   moneyPSDisplay: {fileID: 898678250}
   fansDisplay: {fileID: 1906783015}
+  fansPKDisplay: {fileID: 666915629}
   fansPSDisplay: {fileID: 1544394624}
   stageDisplay: {fileID: 1598676005}
   money: 0
+  moneyPK: 5
   moneyPS: 0
   fans: 0
+  fansPK: 0
   fansPS: 0
-  moneyPerGoal: 1
   stageName: 
+  ballSpeed: 10
+  ballReturnDelay: 2
+  ballReturnTime: 1
 --- !u!4 &936037565
 Transform:
   m_ObjectHideFlags: 0
@@ -769,7 +851,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1007390283
 GameObject:
@@ -887,6 +969,8 @@ RectTransform:
   - {fileID: 1544394623}
   - {fileID: 898678249}
   - {fileID: 1598676004}
+  - {fileID: 666915628}
+  - {fileID: 1910399641}
   m_Father: {fileID: 1373352802}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -954,7 +1038,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1175146614
 GameObject:
@@ -1839,8 +1923,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -275.55, y: -50}
-  m_SizeDelta: {x: 200, y: 100}
+  m_AnchoredPosition: {x: 238.04997, y: -75.00003}
+  m_SizeDelta: {x: 275, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1544394624
 MonoBehaviour:
@@ -1916,8 +2000,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000138, y: -0.00085449}
-  m_SizeDelta: {x: 351.1, y: 200}
+  m_AnchoredPosition: {x: 0.000015259, y: -0.00085449}
+  m_SizeDelta: {x: 201.1, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1598676005
 MonoBehaviour:
@@ -2045,7 +2129,7 @@ GameObject:
   - component: {fileID: 1699355102}
   - component: {fileID: 1699355106}
   m_Layer: 0
-  m_Name: Wall
+  m_Name: ScoreWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2065,7 +2149,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 231e4d00b5dd9d94298cb5224051047e, type: 2}
+  - {fileID: 2100000, guid: 378065117bdd4434fa4ed86dc7bfc493, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2110,11 +2194,11 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1699355101}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.3, y: 5, z: 24.18}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.1900003, y: 1.2390003, z: 19.18}
   m_LocalScale: {x: 58.933056, y: 29.613333, z: 0.1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 2013694590}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1699355106
@@ -2421,8 +2505,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100, y: -50}
-  m_SizeDelta: {x: 200, y: 100}
+  m_AnchoredPosition: {x: 613.6, y: -50}
+  m_SizeDelta: {x: 275, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1906783015
 MonoBehaviour:
@@ -2465,6 +2549,80 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1906783013}
+--- !u!1 &1910399640
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1910399641}
+  - component: {fileID: 1910399643}
+  - component: {fileID: 1910399642}
+  m_Layer: 5
+  m_Name: MoneyPerKickDisplay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1910399641
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1910399640}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0000299, y: 1.0000299, z: 1.0000299}
+  m_Children: []
+  m_Father: {fileID: 1097379589}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -238.04999, y: -25}
+  m_SizeDelta: {x: 275, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1910399642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1910399640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 20
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "\xA3 Per Kick:"
+--- !u!222 &1910399643
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1910399640}
 --- !u!1 &2013694589
 GameObject:
   m_ObjectHideFlags: 0
@@ -2495,8 +2653,9 @@ Transform:
   - {fileID: 1007390287}
   - {fileID: 1175146615}
   - {fileID: 1384892945}
+  - {fileID: 1699355105}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2147467703
 GameObject:

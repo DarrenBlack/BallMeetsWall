@@ -7,8 +7,9 @@ public class BallTestScript : MonoBehaviour {
     public Camera gameCamera;
     public GameObject wall;
     public Transform startPosition;
-    public float speed;
-    public float timeToReturn;
+    public GameManager gm;
+
+
     bool frozen;
     SphereCollider coll;
 
@@ -46,27 +47,26 @@ public class BallTestScript : MonoBehaviour {
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "Wall")
+        if (collision.gameObject.name == "ScoreWall")
         {
             Debug.Log("Hit the wall");
 
             collision.gameObject.GetComponent<Kick>().Score();
-            Invoke("ResetPosition", 2f);
+            Invoke("ResetPosition", gm.ballReturnDelay);
         }
     }   
 
     void MoveTowardsWall()
     {
         rb.constraints = RigidbodyConstraints.None;
-        rb.AddForce((GetRandomPositionOnWall() - transform.position) * speed);
+        rb.AddForce((GetRandomPositionOnWall() - transform.position) * gm.ballSpeed);
     }
 
     public Vector3 GetRandomPositionOnWall()
     {
         Mesh planeMesh = wall.GetComponent<MeshFilter>().mesh;
         Bounds bounds = planeMesh.bounds;
-
-        float minX = wall.transform.position.x - wall.transform.localScale.x * bounds.size.x * 0.5f;
+        
         float minZ = wall.transform.position.z - wall.transform.localScale.z * bounds.size.z * 0.5f;
         float minY = wall.transform.position.y - wall.transform.localScale.y * bounds.size.y * 0.5f;
 
@@ -78,7 +78,7 @@ public class BallTestScript : MonoBehaviour {
     {
 
         Debug.Log("resetting position");
-        StartCoroutine(MoveToPosition(transform, startPosition.position, timeToReturn));
+        StartCoroutine(MoveToPosition(transform, startPosition.position, gm.ballReturnTime));
         rb.constraints = RigidbodyConstraints.FreezeAll;
         frozen = true;
     }
