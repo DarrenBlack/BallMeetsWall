@@ -31,11 +31,13 @@ public class BallTestScript : MonoBehaviour {
             frozen = false;
             Ray ray = gameCamera.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-
             if (Physics.Raycast(ray, out hit))
             {
-                Debug.Log("Hit");
-                MoveTowardsWall();
+                if (hit.transform.tag == "Ball")
+                {
+                    Debug.Log("Hit");
+                    MoveTowardsWall();
+                }
             }
         }
 
