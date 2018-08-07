@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour {
     public Text fansPSDisplay;
     public Text stageDisplay;    
     
-
+    
     //Currency Values
     public float money = 0;
     public float moneyPK = 1;
@@ -29,11 +29,14 @@ public class GameManager : MonoBehaviour {
     public float ballReturnDelay;
     public float ballReturnTime;
 
-    
+    public bool autoKick; //NOT YET IMPLEMENTED
+    public int noOfBalls; //NOT YET IMPLEMENTED
 
 
-	// Use this for initialization
-	void Start () {
+
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -48,4 +51,18 @@ public class GameManager : MonoBehaviour {
         fansPSDisplay.text = "FansPS: " + fansPS;
         stageDisplay.text = "Stage: " + stageName;
 	}
+
+    public void ApplyUpgrade(UpgradeEffect effect)
+    {
+        ballSpeed += effect.ballSpeed;
+        ballReturnTime += effect.ballReturnTime;
+        ballReturnTime += effect.ballReturnDelay;
+        noOfBalls += effect.noOfBalls;
+        moneyPK += effect.moneyMultiplier;
+
+        if (!autoKick)
+        {
+            autoKick = effect.autoKick;
+        }
+    }
 }
